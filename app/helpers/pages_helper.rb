@@ -1,7 +1,7 @@
 module PagesHelper
-  def blog_entries
+	def blog_entries
 		blog = ''
-    begin
+		begin
 			Timeout.timeout(5, Timeout::Error) do
 				# get the blog data
 				blog_url = "http://community.thingspeak.com"
@@ -9,8 +9,8 @@ module PagesHelper
 
 				# parse out the html we need
 				doc.css("img").remove
-        doc.css("script").remove
-        doc.css("iframe").remove
+				doc.css("script").remove
+				doc.css("iframe").remove
 				doc.css("div.post").each_with_index do |d, i|
 					# only show 3 posts
 					if (i < 3)
@@ -24,6 +24,5 @@ module PagesHelper
 		rescue
 		end
 		blog
-  end
+	end
 end
-

@@ -1,0 +1,6 @@
+/* Navigation bar */
+.navbar-inverse { background: #fcd432; border-bottom: 1px solid transparent; }
+.navbar { -webkit-box-shadow: 0 1px 10px transparent; box-shadow: 0 1pxp 10px transparent; }
+.navbar-inverse .navbar-nav > li > a { color: #000; }
+.navbar-default .navbar-nav > li > a:hover, .navbar-default.navbar-nav > li > a:focus { color: #fffff; background-color: #000; }
+.bg-primary, .bg-success, .bg-info, .bg-warning, .bg-danger { padding: 15px; }
