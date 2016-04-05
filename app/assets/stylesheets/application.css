@@ -4,5 +4,5 @@
 *= require ./status.css
 *= require ./prettify.css
 *= require ./sidebar.css
+*= require ./overrides.css
 */
-

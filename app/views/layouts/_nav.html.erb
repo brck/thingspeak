@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
       </button>
       <%= link_to root_path do %>
-        <%= image_tag 'thingspeak_logo_white.png', :size => '188x35', :style => 'padding: 0 8px; margin-top: 7px;' %>
+        <%= image_tag 'thingspeak-brck-logo_white.png', :size => '188x35', :style => 'padding: 0 8px; margin-top: 7px;' %>
       <% end %>
     </div>
     <div class="navbar-collapse collapse">
@@ -45,17 +45,6 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
 
-        <li class="<%= "active " if @menu == 'support' %>dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=t(:support)%> <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="/docs"><%= t(:documentation) %></a></li>
-            <li><a href="/docs/tutorials/"><%= t(:tutorials) %></a></li>
-            <li><a href="http://community.thingspeak.com/forum/"><%= t(:forum) %></a></li>
-          </ul>
-        </li>
-
-        <li><a href="http://community.thingspeak.com/"><%= t(:blog)%></a></li>
-
         <% if current_user %>
           <li><%= link_to t(:signout), logout_path %></li>
         <% else %>
@@ -67,4 +56,3 @@
     </div><!--/.nav-collapse -->
   </div>
 </div>
-
