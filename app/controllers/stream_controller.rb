@@ -11,7 +11,7 @@ class StreamController < ApplicationController
 
     # set the attachment headers
     response.headers['Content-Type'] = 'text/csv'
-    response.headers['Content-Disposition'] = 'attachment; filename=feeds.csv'
+    response.headers['Content-Disposition'] = "attachment; filename=feeds-#{channel.id}-#{Time.zone.now.to_i}.csv"
 
     # get the feed headers
     csv_headers = Feed.select_options(channel, params)
@@ -30,20 +30,24 @@ class StreamController < ApplicationController
       batch_output = ""
 
       # get the feeds
-      feeds = Feed.where(:channel_id => channel.id).where("entry_id > ? AND entry_id <= ?", current_entry_id, current_entry_id + batch_size).order('entry_id asc').limit(batch_size)
+      feeds = Feed.where(:channel_id => channel.id)
+                  .where("entry_id > ? AND entry_id <= ?", current_entry_id, current_entry_id + batch_size)
+                  .order('entry_id asc')
+                  .limit(batch_size)
 
       # set the current entry id
       current_entry_id += batch_size
 
       # for each feed, add the data according to the csv_headers
       feeds.each do |feed|
-        row = []
-        csv_headers.each { |attr| row.push(feed.send(attr)) }
+        row = csv_headers.collect { |header| feed.send(header) }
         batch_output += CSV.generate_line(row)
       end
 
       # write the output for this batch
       response.stream.write batch_output if batch_output.present?
+
+      Rails.logger.info "Written #{feeds.length} feeds to output file"
 
       # add a slight delay between database queries
       sleep 0.1
@@ -83,4 +87,3 @@ class StreamController < ApplicationController
   end
 
 end
-
