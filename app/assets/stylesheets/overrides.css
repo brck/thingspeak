@@ -1,6 +1,76 @@
-/* Navigation bar */
+/*Heading*/
+h1,h2,h3,h4{
+  color: #555
+}
+
+/*Global Links*/
+a {
+  color: #494949;
+  text-decoration: none;
+}
+
+a:hover, a:focus{
+  color: #f19f1f;
+  text-decoration: none;
+}
+
+
+/*Buttons*/
+
+.btn-primary{
+  background-color: #fdd431;
+  border-color: #fdd431;
+  color: #49494a;
+}
+
+.btn-primary:hover{
+  background-color: #f19f1f;
+  border-color: #f19f1f;
+  color:#49494a;
+}
+
+
+/*Top Nav bar*/
 .navbar-inverse { background: #fcd432; border-bottom: 1px solid transparent; }
 .navbar { -webkit-box-shadow: 0 1px 10px transparent; box-shadow: 0 1pxp 10px transparent; }
 .navbar-inverse .navbar-nav > li > a { color: #000; }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default.navbar-nav > li > a:focus { color: #fffff; background-color: #000; }
 .bg-primary, .bg-success, .bg-info, .bg-warning, .bg-danger { padding: 15px; }
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+  color: #000;
+  background-color: #ddb91d;
+}
+
+/*Widget Header*/
+
+.ui-widget-header {
+  border: 1px solid #fdd431;
+  background: #fdd431;
+  color: #333;
+}
+
+/*Widget content links*/
+
+.ui-widget-content a {
+  color: #333;
+}
+
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+  color: #d82020;
+  text-decoration: none;
+}
+
+
+/*Tabs*/
+.ui-tabs .ui-tabs-nav li{
+  border:none;
+}
+
+.ui-tabs .ui-tabs-nav li a {
+  color: #494949;
+}
+
+.ui-tabs-active a{
+  color: #f19f1f;
+}
